@@ -1,9 +1,19 @@
 
 
 def consolidate_cart(cart)
-  cart.each do |item, attributes|
-    
-  end 
+   hash = {}
+  count = 0
+  cart.each do |grocery|
+    grocery.each do |item, value|
+        if hash[item]
+          hash[item][:count] +=1
+        else
+          hash[item]= value
+          hash[item][:count] = 1
+        end
+      end
+    end
+    hash
 end
 
 def apply_coupons(cart, coupons)
